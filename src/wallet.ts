@@ -53,11 +53,26 @@ class Wallet {
   // * bucket[1] : [1_234]
   // * bucket[2] : [1_000_001]
   //********************************************************************************
+
   public distribution(scale: number): Distribution {
-    let buckets = new Array();
-    // TODO: Your implementation here
-    return new Distribution(buckets);
-  }
+      let buckets = new Array();
+      // TODO: Your implementation here
+      var x = 0;
+      var multiplier=0;
+      let temp_array = new Array();
+      let ClonedCoins  = [...coins];
+
+
+          for(multiplier=scale;multiplier<=1000000000; multiplier=multiplier*scale) {
+
+              buckets.push(ClonedCoins.filter(x => x.showValue()/multiplier < 1))
+              temp_array = ClonedCoins.filter(x => x.showValue()/multiplier < 1);
+              ClonedCoins = ClonedCoins.filter(item => !temp_array.includes(item))
+              console.log("multiplier :  "+multiplier);
+              }
+           console.log("multiplier :  "+multiplier);
+      return new Distribution(buckets);
+    }
 
   //********************************************************************************
   // Part 1.4: Spending from this wallet a specific amount
