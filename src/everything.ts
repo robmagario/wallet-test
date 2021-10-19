@@ -81,6 +81,7 @@ console.log("Amount available now :  "+obj.available());
 
 dist = obj.distribution(1000);
 
+// check the bucket values
 console.log (dist.buckets[0]);
 console.log (dist.buckets[1]);
 console.log (dist.buckets[2]);
