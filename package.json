@@ -1,0 +1,38 @@
+{
+  "name": "developer-test-1",
+  "version": "0.0.9",
+  "description": "Test for Software Developer Interview",
+  "author": "Shivam Tiwari <shivam.tiwari@hextech.io>",
+  "license": "Hex Commercial",
+  "main": "./built/index.js",
+  "scripts": {
+    "build": "tsc",
+    "doc": "typedoc",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",
+    "mocha-test": "mocha -r ts-node/register tests/\\*\\*/\\*.spec.ts",
+    "hexlint": "eslint --config .eslintrc.json --ignore-path .eslintignore ./src/**/*.ts",
+    "hexfix": "eslint --config .eslintrc.json --fix --ignore-path .eslintignore ./src/**/*.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/ethereumjs-abi": "^0.6.3",
+    "@types/express": "^4.17.8",
+    "@types/express-serve-static-core": "^4.17.13",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.19.14",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "chai": "^4.2.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^3.0.9",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.4.1",
+    "typedoc": "^0.15.0",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+  }
+}

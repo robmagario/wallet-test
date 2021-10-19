@@ -1,0 +1,14 @@
+.eslintrc.json
+.gitignore
+husky.js
+increase-built.js
+.npmignore
+tsconfig.json
+.eslintignore
+.gitlab-ci.yml
+.huskyrc.json
+tests/
+src/
+node_modules/
+.git/
+
