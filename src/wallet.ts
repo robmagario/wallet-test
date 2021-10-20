@@ -84,9 +84,31 @@ class Wallet {
   // If the requested cannot be satisfied then an error should be return.
   //********************************************************************************
   public spend(amount: number): Array<Coin> {
-    // TODO: Your implementation here
-    throw new Error('Spend Error: Insufficient funds in the wallet.');
-  }
+
+      let sum: number = 0;
+      this.coins.forEach(a => sum += a.showValue());
+      let tempComparisonValue:number = 10000000000;
+      var tempIndex;
+
+       if (sum < amount) {
+      throw new Error('Spend Error: Insufficient funds in the wallet.');
+      }
+      else {
+
+                  for (var index in this.coins) {
+              if ((this.coins[index].showValue() >= amount)&&(this.coins[index].showValue()<tempComparisonValue)) {
+                      tempComparisonValue = this.coins[index].showValue();
+                      console.log("show value :  "+tempComparisonValue);
+                      tempIndex = index;
+              }
+          }
+          console.log("show index value :  "+tempIndex);
+
+          this.coins[tempIndex] = new Coin(this.coins[tempIndex].showValue() - amount);
+          console.log("current amount after deduction :  "+this.coins[tempIndex].showValue());
+      }
+
+    }
 
 
   //********************************************************************************
