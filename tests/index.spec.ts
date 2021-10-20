@@ -8,14 +8,12 @@
 import Coin from '../src/coin';
 import Wallet from '../src/wallet';
 
-//Initiate the wallet
-var obj = new Wallet(5);
 
 var coins: Array<Coin> = [new Coin(5), new Coin(67), new Coin(1234), new Coin(1000001)];
 var dist = new Distribution([coins]);
+var obj = new Wallet(5);
 
-
-//Check amount available. Should return 30
+//Check amount available. Should return 5
 console.log("Amount available now :  "+obj.available());
 
 // Check if the add function works.
@@ -28,21 +26,24 @@ console.log("Amount available now :  "+obj.available());
 
 dist = obj.distribution(1000);
 
-// check the bucket values
 console.log (dist.buckets[0]);
 console.log (dist.buckets[1]);
 console.log (dist.buckets[2]);
 
 
-// testing spending
-// creating a new wallet, adding 5 as amount
-// then add a few random values to the wallet
+// Testing the spending assignment
+var obj = new Wallet(5);
+obj.add(new Coin(11));
+obj.add(new Coin(3));
+obj.add(new Coin(40));
+obj.add(new Coin(22));
+obj.spend(8);
+
+// Testing the spending assignment
 var obj = new Wallet(5);
 obj.add(new Coin(11));
 obj.add(new Coin(3));
 obj.add(new Coin(40));
 obj.add(new Coin(22));
 
-// if spend 8, the wallet will deduct 8 from the closest amount, in this case 11.
-obj.spend(8);
-
+obj.reserve(8);
