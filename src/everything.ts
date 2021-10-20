@@ -49,8 +49,8 @@ class Wallet {
 
         for(multiplier=scale;multiplier<=1000000000; multiplier=multiplier*scale) {
 
-            buckets.push(ClonedCoins.filter(x => x.showValue()/multiplier < 1))
-            temp_array = ClonedCoins.filter(x => x.showValue()/multiplier < 1);
+            buckets.push(ClonedCoins.filter(x => x.showValue() < multiplier))
+            temp_array = ClonedCoins.filter(x => x.showValue() < multiplier);
             ClonedCoins = ClonedCoins.filter(item => !temp_array.includes(item))
             console.log("multiplier :  "+multiplier);
             }
@@ -81,7 +81,6 @@ console.log("Amount available now :  "+obj.available());
 
 dist = obj.distribution(1000);
 
-// check the bucket values
 console.log (dist.buckets[0]);
 console.log (dist.buckets[1]);
 console.log (dist.buckets[2]);
