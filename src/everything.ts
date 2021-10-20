@@ -46,15 +46,14 @@ class Wallet {
     let temp_array = new Array();
     let ClonedCoins  = [...coins];
 
-
         for(multiplier=scale;multiplier<=1000000000; multiplier=multiplier*scale) {
-
-            buckets.push(ClonedCoins.filter(x => x.showValue() < multiplier))
+            buckets.push(ClonedCoins.filter(x => x.showValue() < multiplier));
             temp_array = ClonedCoins.filter(x => x.showValue() < multiplier);
             ClonedCoins = ClonedCoins.filter(item => !temp_array.includes(item))
             console.log("multiplier :  "+multiplier);
             }
          console.log("multiplier :  "+multiplier);
+
     return new Distribution(buckets);
   }
 
