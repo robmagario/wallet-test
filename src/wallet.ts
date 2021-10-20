@@ -110,7 +110,6 @@ class Wallet {
 
     }
 
-
   //********************************************************************************
   // Part 1.5: Reserving assets
   //
@@ -126,8 +125,9 @@ class Wallet {
   // With spend, the locked coins are remove from the wallet and given to the user
   //********************************************************************************
   public reserve(amount: number): ReservationHandle{
-    // TODO: Your implementation here
-    throw new Error('Spend Error: Insufficient funds in the wallet.');
+
+
+
   }
 
   public reservationSpend(reservation: ReservationHandle): Array<Coin> {
