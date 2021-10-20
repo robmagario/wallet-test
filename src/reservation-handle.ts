@@ -9,8 +9,8 @@ class ReservationHandle {
     this.coin = coin;
     this.index = index;
   }
- public showCoin(): Coin {
-    return this.coin;
+ public showCoin(): Number {
+    return this.coin.showValue();
       }
  public showIndex(): number {
     return this.index;
