@@ -124,20 +124,31 @@ class Wallet {
   // With cancel, the locked coins are returned to the available funds
   // With spend, the locked coins are remove from the wallet and given to the user
   //********************************************************************************
-  public reserve(amount: number): ReservationHandle{
+    public reserve(amount: number): ReservationHandle{
 
 
+         this.handlers.push(new ReservationHandle(new Coin(amount), 1));
 
-  }
 
-  public reservationSpend(reservation: ReservationHandle): Array<Coin> {
-    // TODO: Your implementation here
-    return new Array();
-  }
+      }
 
-  public reservationCancel(reservation: ReservationHandle) {
-    // TODO: Your implementation here
-  }
+    public reservationSpend(reservation: ReservationHandle): Array<Coin> {
+      // TODO: Your implementation here
+      return new Array();
+    }
+
+    public reservationCancel(reservation: ReservationHandle) {
+      delete this.handlers[reservation];
+
+      for( var i = 0; i < this.handlers.length; i++){
+
+          if ( this.handlers[i] === (reservation)) {
+
+              this.handlers.splice(i, 1);
+          }
+
+      }
+    }
 }
 
 export default Wallet;

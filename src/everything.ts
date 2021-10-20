@@ -86,6 +86,31 @@ class Wallet {
 
 }
 
+  public reserve(amount: number): ReservationHandle{
+
+
+       this.handlers.push(new ReservationHandle(new Coin(amount), 1));
+
+
+    }
+
+  public reservationSpend(reservation: ReservationHandle): Array<Coin> {
+    // TODO: Your implementation here
+    return new Array();
+  }
+
+  public reservationCancel(reservation: ReservationHandle) {
+    delete this.handlers[reservation];
+
+    for( var i = 0; i < this.handlers.length; i++){
+
+        if ( this.handlers[i] === (reservation)) {
+
+            this.handlers.splice(i, 1);
+        }
+
+    }
+  }
 
 //Initiate the wallet
 var obj = new Wallet(5);
